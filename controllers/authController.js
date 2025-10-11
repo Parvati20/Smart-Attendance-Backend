@@ -3,7 +3,6 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// ✅ Export each function individually
 export const signup = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
