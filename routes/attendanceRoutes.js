@@ -1,21 +1,14 @@
-// import express from "express";
-// import { markQRAttendance } from "../controllers/attendanceController.js";
-// import { verifyToken } from "../middleware/authMiddleware.js";
-
-// const router = express.Router();
-
-// router.post("/mark", verifyToken, markQRAttendance);
-
-// export default router;
-
-// routes/attendanceRoutes.js
 import express from "express";
-import { markQRAttendance } from "../controllers/attendanceController.js";
 import { verifyToken } from "../middleware/authMiddleware.js";
+import { markQRAttendance, markKitchenTurn } from "../controllers/attendanceController.js";
 
 const router = express.Router();
 
-// ✅ Correct route
+
 router.post("/mark", verifyToken, markQRAttendance);
 
+router.post("/kitchen", verifyToken, markKitchenTurn);
+
 export default router;
+
+
