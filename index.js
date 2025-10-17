@@ -1,29 +1,22 @@
-
-
-
-
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import attendanceRoutes from "./routes/attendanceRoutes.js";
-
+import leaveRoutes from "./routes/leaveRoutes.js";
 dotenv.config();
 const app = express();
 
-// ✅ Middleware
 app.use(cors());
 app.use(express.json());
 
-// ✅ Routes
 app.get("/", (req, res) => {
-  res.send("Smart Attendance Backend Running ✅");
+  res.send("Smart Attendance Backend Running ");
 });
 app.use("/api/auth", authRoutes);
 app.use("/api/attendance", attendanceRoutes);
-
-// ✅ MongoDB Connection
+app.use("/api/leave", leaveRoutes);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
