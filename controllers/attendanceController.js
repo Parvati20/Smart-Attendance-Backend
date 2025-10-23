@@ -16,7 +16,7 @@ export const markQRAttendance = async (req, res) => {
     record.slots[slot] = "Present";
     await record.save();
 
-    res.status(200).json({ message: "Attendance marked ✅", record });
+    res.status(200).json({ message: "Attendance marked ", record });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

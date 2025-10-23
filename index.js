@@ -5,6 +5,7 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import attendanceRoutes from "./routes/attendanceRoutes.js";
 import leaveRoutes from "./routes/leaveRoutes.js";
+
 dotenv.config();
 const app = express();
 
