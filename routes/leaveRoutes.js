@@ -1,11 +1,19 @@
+
 import express from "express";
 import { verifyToken } from "../middleware/authMiddleware.js";
-import { applyLeave, getLeaveStatus } from "../controllers/leaveController.js";
+import {
+  applyLeave,
+  getLeaveStatus,
+  updateLeaveStatus,
+  getAllLeaves,
+} from "../controllers/leaveController.js";
 
 const router = express.Router();
 
 router.post("/apply", verifyToken, applyLeave);
 router.get("/status", verifyToken, getLeaveStatus);
 
-export default router;
+router.put("/update/:leaveId", verifyToken, updateLeaveStatus);
+router.get("/all", verifyToken, getAllLeaves);
 
+export default router;
